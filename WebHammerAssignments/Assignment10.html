@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment10</title>
+</head>
+<body>
+<img id="img1" width="auto" height="400px" src="Images/1.jpg" alt="1st img" onmouseover="change1(this)" onmouseout="reset1(this)">
+<img id="img2" width="auto" height="400px" src="Images/2.webp" alt="2nd img" onmouseover="change2(this)" onmouseout="reset2(this)">
+<img id="img3" width="auto" height="400px" src="Images/3.jpg" alt="3rd img" onmouseover="change3(this)" onmouseout="reset3(this)">
+
+<img width="auto" height="400px" src="Images/reset.jpg" alt="resetimg" onmouseover="changeEverything()" onmouseout="resetEverything()">
+<script>
+  function change1(x){
+    x.src="Images/11.jpg";
+  }
+
+  function reset1(x){
+    x.src="Images/1.jpg"
+  }
+
+  function change2(x){
+    x.src="Images/22.jpg";
+  }
+
+  function reset2(x){
+    x.src="Images/2.webp"
+  }
+
+  function change3(x){
+    x.src="Images/33.jpg";
+  }
+
+  function reset3(x){
+    x.src="Images/3.jpg"
+  }
+
+  function changeEverything(){
+    document.getElementById("img1").src="Images/reset.jpg";
+    document.getElementById("img2").src="Images/reset.jpg";
+    document.getElementById("img3").src="Images/reset.jpg";
+  }
+
+  function resetEverything(){
+    document.getElementById("img1").src="Images/1.jpg";
+    document.getElementById("img2").src="Images/2.webp";
+    document.getElementById("img3").src="Images/3.jpg";
+  }
+</script>
+
+</body>
+</html>
