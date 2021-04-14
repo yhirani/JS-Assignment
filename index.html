@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>Question1</title>
     <script src="index_script.js"></script>
-
+    <style>
+        body{
+            line-height: 30px;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
     <h1>SignUp Here</h1>
@@ -20,7 +25,8 @@
         </select>
         <br>
         <label class="labels" for="phoneNo">Phone Number :- </label>
-        <input class = "forms" type="tel" id="phoneNo" pattern="\+91-[6-9][0-9]{9}" required title="Phone Number" placeholder="+91-9999999999">
+        <input class="forms" type="tel" value="+91" disabled>
+        <input class = "forms" type="tel" id="phoneNo" pattern="[6-9][0-9]{9}" required title="Phone Number" placeholder="9999999999">
         <br>
         <label class="labels" for="age">Age :- </label>
         <input id="age" type="number" required>
@@ -33,7 +39,7 @@
         </select>
         <br>
         <label class="labels" for="email">Email Address:- </label>
-        <input type="email" id="email" required>
+        <input type="email" name="email" id="email" required>
         <br>
 
         <label class="labels" for="pass">Enter password:- </label>
@@ -55,7 +61,7 @@
         <input type="text" id="city" required>
         <br>
         <br>
-        <input type="submit">
+        <input type="submit" value="Submit">
     </form>
 
 
