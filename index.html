@@ -6,15 +6,23 @@
     <script src="index_script.js"></script>
     <style>
         body{
-            line-height: 30px;
+            line-height: 25px;
             font-family: sans-serif;
+        }
+
+        input{
+            border: 1px solid gray;
+        }
+
+        #passwordList li{
+            color: red;
         }
     </style>
 </head>
 <body>
     <h1>SignUp Here</h1>
 
-    <form onsubmit="return submitCheck(this)">
+    <form onsubmit="return finalSubmit()">
         <label class="labels" for="eduQual">Select Educational Qualification :- </label>
         <select class = "forms" id="eduQual"required>
             <option value="10th Pass">10th Pass</option>
@@ -25,8 +33,7 @@
         </select>
         <br>
         <label class="labels" for="phoneNo">Phone Number :- </label>
-        <input class="forms" type="tel" value="+91" disabled>
-        <input class = "forms" type="tel" id="phoneNo" pattern="[6-9][0-9]{9}" required title="Phone Number" placeholder="9999999999">
+        <input class = "forms" type="tel" id="phoneNo" required title="Phone Number" placeholder="9999999999" onfocusout="javascript:checkPhoneNumber();">
         <br>
         <label class="labels" for="age">Age :- </label>
         <input id="age" type="number" required>
@@ -39,16 +46,16 @@
         </select>
         <br>
         <label class="labels" for="email">Email Address:- </label>
-        <input type="email" name="email" id="email" required>
+        <input type="text" name="email" id="email" required onfocusout="javascript:checkEmail()">
         <br>
 
         <label class="labels" for="pass">Enter password:- </label>
-        <input type="password" name = "password1" id="pass" required>
+        <input type="password" name = "password1" id="pass" required onfocusout="javascript:checkPassword()">
 
         <br>
 
         <label class="labels" for="pass2">Confirm password:- </label>
-        <input type="password" name = "password2" id="pass2" required>
+        <input type="password" name = "password2" id="pass2" required onfocusout="javascript:checkPassword2()">
 
         <br>
 
@@ -63,6 +70,24 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+    <br>
+    <br>
+
+    <div class="passwordDetails">
+        <h2>Password Requirements</h2>
+        <ul id="passwordList">
+            <li id="length">At least 8 characters</li>
+            <li id="lowerCase">At least one lowercase letter</li>
+            <li id="upperCase">At least one uppercase letter</li>
+            <li id="number">At least one number</li>
+        </ul>
+    </div>
+
+    <div id="errors">
+        <h2>Errors</h2>
+        <ul id="errorList">
+        </ul>
+    </div>
 
 
 </body>

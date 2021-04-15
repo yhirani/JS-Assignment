@@ -1,27 +1,132 @@
-function submitCheck(form){
-    console.log(form.password1.value);
-    console.log(form.password2.value);
+let success = true;
 
-    let checked = false;
+function checkPhoneNumber(){
+    let number=document.getElementById("phoneNo").value;
 
-    if(form.password1.value != form.password2.value){
-        alert("Password and Confirm Password do not match.");
-        return false;
+    if(!(number.match(/(?:0|\+91)?[6-9][0-9]{9}/))){
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("phoneNo").style.border="2px solid red";
+        let err = document.createElement("li");
+        let checker=document.getElementById("phoneError");
+
+        if(checker==null){
+            err.setAttribute("id","phoneError");
+
+            err.appendChild(document.createTextNode("The phone number entered is not valid."));
+            listOfErrors.appendChild(err);
+        }
+
+
+        success=false;
     }else{
-        checked=true;
+        let err = document.getElementById("phoneError");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("phoneNo").style.border="1px solid gray";
+        success = true;
     }
 
-    if(form.email.value.match(/[\w\d\._]+@[\w\d]+\.[\w]+/)){
-        checked=true;
+}
+
+function checkEmail(){
+    let email = document.getElementById("email").value;
+
+    if(!(email.match(/[\w\d\._]+@[\w\d]+\.[\w]+/))){
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("email").style.border="2px solid red";
+        let err = document.createElement("li");
+
+        let checker=document.getElementById("phoneError");
+
+        if(checker==null){
+            err.setAttribute("id","emailError");
+
+            err.appendChild(document.createTextNode("The email address entered is not valid."));
+            listOfErrors.appendChild(err);
+        }
+
+        success=false;
     }else{
-        alert("Invalid Email");
-        return false;
+        let err = document.getElementById("emailError");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("email").style.border="1px solid gray";
+        success = true;
     }
+}
 
-    if(checked){
-        alert("Signup Successful");
-        return true;
+function checkPassword(){
+    let password=document.getElementById("pass").value;
+
+    let finalCheck=true;
+
+    if(password.match(/[A-Z]/))
+        document.getElementById("upperCase").style.color="Green";
+    else
+        finalCheck=false;
+
+    if(password.match(/[a-z]/))
+        document.getElementById("lowerCase").style.color="Green";
+    else
+        finalCheck=false;
+    if(password.match(/[0-9]/))
+        document.getElementById("number").style.color="Green";
+    else
+        finalCheck=false;
+
+    if(password.length>=8)
+        document.getElementById("length").style.color="Green";
+    else
+        finalCheck=false;
+
+    if(!finalCheck){
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("pass").style.border="2px solid red";
+        let err = document.createElement("li");
+        let checker=document.getElementById("passError");
+
+        if(checker==null){
+            err.setAttribute("id","passError");
+
+
+            err.appendChild(document.createTextNode("The password entered is not valid."));
+            listOfErrors.appendChild(err);
+        }
+
+        success=false;
+    }else{
+        let err = document.getElementById("passError");
+        success = true;
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("pass").style.border="1px solid gray";
     }
+}
 
+function checkPassword2(){
+    let password=document.getElementById("pass").value;
+    let password2=document.getElementById("pass2").value;
 
+    if(password !== password2){
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("pass2").style.border="2px solid red";
+        let err = document.createElement("li");
+
+        let checker=document.getElementById("pass2Error");
+
+        if(checker==null){
+            err.setAttribute("id","pass2Error");
+
+            err.appendChild(document.createTextNode("The confirm password and password do not match"));
+            listOfErrors.appendChild(err);
+        }
+
+        success=false;
+    }else{
+        let err = document.getElementById("pass2Error");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("pass2").style.border="1px solid gray";
+        success = true;
+    }
+}
+
+function finalSubmit(){
+    return success;
 }
