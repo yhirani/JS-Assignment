@@ -2,8 +2,15 @@ let success = true;
 
 function checkPhoneNumber(){
     let number=document.getElementById("phoneNo").value;
+    let good = true;
+    if(number.startsWith("0") && number.length !== 11)
+        good=false;
+    else if(number.startsWith("+") && number.length !== 13)
+        good=false;
+    else if (number.length!==10 && !number.startsWith("0") && !number.startsWith("+"))
+        good=false;
 
-    if(!(number.match(/(?:0|\+91)?[6-9][0-9]{9}/))){
+    if(!(number.match(/(?:0|\+91)?[6-9][0-9]{9}/)) || !good ){
         let listOfErrors = document.getElementById("errorList");
         document.getElementById("phoneNo").style.border="2px solid red";
         let err = document.createElement("li");
