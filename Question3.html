@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Question3</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body id="bodd">
   <form id="signIn">
     <label class="labels" for="email">Email Address:- </label>
-    <input type="text" name="email" id="email" required>
+    <input type="text" name="email" id="email" required> <br />
 
     <label class="labels" for="pass">Enter password:- </label>
-    <input type="password" name = "password1" id="pass" required>
+    <input type="password" name = "password1" id="pass" required> <br /> <br />
+
+    <button id="submit">Login</button>
   </form>
 
+  <div id="response">
+
+  </div>
 
 
   <script src="Question3.js"></script>

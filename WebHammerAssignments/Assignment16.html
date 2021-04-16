@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment16</title>
-  <script src="Assignment16.js"></script>
+    <style>
+        td{
+            width: 72px;
+        }
+    </style>
 </head>
-<body>
-
+<body onLoad="setTimeout('shifter(1)',500)">
+    <table onmouseover="resetTime()" onmouseleave="setTimeout('shifter(1)',500)">
+        <tr>
+            <td ></td>
+            <td><img id="1" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td><img id="2" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td><img id="3" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><img id="12" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td></td>
+            <td><img id="4" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><img id="11" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td></td>
+            <td><img src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td></td>
+            <td ><img id="5" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><img id="10" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td></td>
+            <td><img id="6" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><img id="9" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td><img id="8" src="http://www.webhammer.com/javascript/materials/marble1.jpg" style="display: none"></td>
+            <td><img  id="7" src="http://www.webhammer.com/javascript/materials/marble1.jpg"></td>
+            <td></td>
+        </tr>
+    </table>
+    <script src="Assignment16.js"></script>
 </body>
 </html>

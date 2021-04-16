@@ -24,7 +24,7 @@
 
     <form onsubmit="return finalSubmit()">
         <label class="labels" for="eduQual">Select Educational Qualification :- </label>
-        <select class = "forms" id="eduQual"required>
+        <select class = "forms" id="eduQual" required>
             <option value="10th Pass">10th Pass</option>
             <option value="12th Pass">12th Pass</option>
             <option value="Graduate">Graduate</option>
@@ -36,7 +36,7 @@
         <input class = "forms" type="tel" id="phoneNo" required title="Phone Number" placeholder="9999999999" onfocusout="javascript:checkPhoneNumber();">
         <br>
         <label class="labels" for="age">Age :- </label>
-        <input id="age" type="number" required>
+        <input id="age" type="number" required onfocusout="javascript: checkAge()">
         <br>
         <label class="labels" for="gender">Gender</label>
         <select class = "forms" id="gender" required>
@@ -60,12 +60,12 @@
         <br>
 
         <label class="labels" for="name">Enter Full Name:- </label>
-        <input type="text" id="name" required>
+        <input type="text" id="name" required onfocusout="javascript: checkName()">
 
         <br>
 
         <label class="labels" for="city">Enter City:- </label>
-        <input type="text" id="city" required>
+        <input type="text" id="city" required onfocusout="javascript: checkCity()">
         <br>
         <br>
         <input type="submit" value="Submit">
@@ -80,6 +80,7 @@
             <li id="lowerCase">At least one lowercase letter</li>
             <li id="upperCase">At least one uppercase letter</li>
             <li id="number">At least one number</li>
+            <li id="spec">At least one special character</li>
         </ul>
     </div>
 

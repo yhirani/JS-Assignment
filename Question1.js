@@ -5,12 +5,17 @@ function checkPhoneNumber(){
     let good = true;
     if(number.startsWith("0") && number.length !== 11)
         good=false;
-    else if(number.startsWith("+") && number.length !== 13)
+    else if(number.startsWith("91") && number.length !== 12)
         good=false;
-    else if (number.length!==10 && !number.startsWith("0") && !number.startsWith("+"))
+    else if(number.startsWith("+") && number.length !== 14 && number.contains("-"))
+        good=false;
+    else if (number.length!==10 && !number.startsWith("0") && !number.startsWith("+") && !number.startsWith("91"))
+        good=false;
+    else if(number.startsWith("+") && number.length !== 13 && !number.contains("-"))
         good=false;
 
-    if(!(number.match(/(?:0|\+91)?[6-9][0-9]{9}/)) || !good ){
+
+    if(!(number.match(/\+?(?:0|91)?-?[6-9][0-9]{9}/)) || !good ){
         let listOfErrors = document.getElementById("errorList");
         document.getElementById("phoneNo").style.border="2px solid red";
         let err = document.createElement("li");
@@ -84,6 +89,11 @@ function checkPassword(){
     else
         finalCheck=false;
 
+    if(password.match(/\W|_/))
+        document.getElementById("spec").style.color="Green";
+    else
+        finalCheck=false;
+
     if(!finalCheck){
         let listOfErrors = document.getElementById("errorList");
         document.getElementById("pass").style.border="2px solid red";
@@ -130,6 +140,80 @@ function checkPassword2(){
         let err = document.getElementById("pass2Error");
         if(err!==null)err.parentNode.removeChild(err);
         document.getElementById("pass2").style.border="1px solid gray";
+        success = true;
+    }
+}
+
+function checkName(){
+    let name = document.getElementById("name").value;
+
+    if(!name.match(/[^\w\s\d'-]/)){
+        let err = document.getElementById("nameError");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("name").style.border="1px solid gray";
+        success = true;
+    }else{
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("name").style.border="2px solid red";
+        let err = document.createElement("li");
+
+        let checker=document.getElementById("nameError");
+
+        if(checker==null){
+            err.setAttribute("id","nameError");
+
+            err.appendChild(document.createTextNode("The name entered is invalid"));
+            listOfErrors.appendChild(err);
+        }
+    }
+}
+
+function checkAge(){
+    let age=document.getElementById("age").value;
+
+    if(age>0){
+        let err = document.getElementById("ageError");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("age").style.border="1px solid gray";
+        success = true;
+    }else{
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("age").style.border="2px solid red";
+        let err = document.createElement("li");
+
+        let checker=document.getElementById("ageError");
+
+        if(checker==null){
+            err.setAttribute("id","ageError");
+
+            err.appendChild(document.createTextNode("The age entered is invalid"));
+            listOfErrors.appendChild(err);
+        }
+    }
+}
+
+function checkCity(){
+    let city=document.getElementById("city").value;
+
+    if(city.match(/[^\w\s\d'-]/)){
+        let listOfErrors = document.getElementById("errorList");
+        document.getElementById("city").style.border="2px solid red";
+        let err = document.createElement("li");
+
+        let checker=document.getElementById("cityError");
+
+        if(checker==null){
+            err.setAttribute("id","cityError");
+
+            err.appendChild(document.createTextNode("The city entered is invalid"));
+            listOfErrors.appendChild(err);
+        }
+
+
+    }else{
+        let err = document.getElementById("cityError");
+        if(err!==null)err.parentNode.removeChild(err);
+        document.getElementById("city").style.border="1px solid gray";
         success = true;
     }
 }
