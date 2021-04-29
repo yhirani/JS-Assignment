@@ -5,6 +5,18 @@
     <title>Assignment7</title>
 </head>
 <body>
+
+
+  <p>
+    You do not like and <b><span id="first"></span> </b><br>
+    I do not like them, <b><span id="name"></span></b>-I-am.<br>
+    Could you, would you, with a <b><span id="second"></span></b>?<br>
+    I would not, could not, with a <b><span id="third"></span></b>!<br>
+    Would you, could you, on a <b><span id="fourth"></span></b>?<br>
+    I could not, would not, on a <b><span id="fifth"></span></b>.<br>
+    I will not, will not, with a goat.<br>
+  </p>
+
   <script>
     let name = prompt("What is your name?");
     let word1 = prompt("Enter the first word.");
@@ -14,16 +26,16 @@
     let word5 = prompt("Enter last word.");
 
     let color = prompt("Enter a color please.");
-  </script>
 
-  <p>
-    You do not like and ham? <br>
-    I do not like them, Sam-I-am.<br>
-    Could you, would you, with a goat?<br>
-    I would not, could not, with a goat!<br>
-    Would you, could you, on a boat?<br>
-    I could not, would not, on a boat.<br>
-    I will not, will not, with a goat.<br>
-  </p>
+    document.getElementById("name").appendChild(document.createTextNode(name));
+    document.getElementById("first").appendChild(document.createTextNode(word1));
+    document.getElementById("second").appendChild(document.createTextNode(word2));
+    document.getElementById("third").appendChild(document.createTextNode(word3));
+    document.getElementById("fourth").appendChild(document.createTextNode(word4));
+    document.getElementById("fifth").appendChild(document.createTextNode(word5));
+
+    document.body.style.backgroundColor=color;
+    
+  </script>
 </body>
 </html>
